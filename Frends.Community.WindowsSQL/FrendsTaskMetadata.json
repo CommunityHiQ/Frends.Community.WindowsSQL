@@ -1,0 +1,16 @@
+﻿{
+  "Tasks": [
+      {
+        "TaskMethod": "Frends.Community.WindowsSQL.Sql.ExecuteQuery"
+      },
+      {
+        "TaskMethod": "Frends.Community.WindowsSQL.Sql.ExecuteProcedure"
+      },
+      {
+        "TaskMethod": "Frends.Community.WindowsSQL.Sql.BulkInsert"
+      },
+      {
+      "TaskMethod": "Frends.Community.WindowsSQL.Sql.BatchOperation"
+      }
+    ]
+}

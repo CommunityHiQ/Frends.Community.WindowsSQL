@@ -1,0 +1,29 @@
+name: BuildAndTestOnEveryPush.yml
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build:
+    name: Build on ubuntu
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: set up docker
+      run: docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Salakala123!" -p 1433:1433 --name sql1 --hostname sql1 -d mcr.microsoft.com/mssql/server:2019-CU18-ubuntu-20.04
+
+    - name: Build
+      run: dotnet build
+    
+    - name: Test
+      run: dotnet test
+      
+    - name: Pack release version of task
+      run: dotnet pack --configuration Release --include-source
+      
+    - name: Push NuGet package to the testfeed
+      run: dotnet nuget push Frends.Community.WindowsSQL\bin\Release\Frends.Community.WindowsSQL.*.nupkg  --api-key ${{ secrets.COMMUNITY_FEED_API_KEY }} --source https://www.myget.org/F/frends-community-test/api/v2/package
