@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.Community.WindowsSQl\Frends.Community.WindowsSQL.csproj" />
+    <ProjectReference Include="..\Frends.Community.WindowsSQL\Frends.Community.WindowsSQL.csproj" />
   </ItemGroup>
 
 </Project>
