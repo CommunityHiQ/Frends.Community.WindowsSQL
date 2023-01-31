@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
+using Frends.Community.WindowsSQL;
 
 namespace Frends.Community.WindowsSQL.Tests
 {
