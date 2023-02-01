@@ -6,7 +6,7 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Company>HiQ Finland</Company>
     <Authors>HiQ Finland</Authors>
-    <Description>FRENDS Sql tasks for Windows machines</Description>
+    <Description>Frends Sql tasks for Windows machines</Description>
     <Version>1.0.0</Version>
   </PropertyGroup>
 

@@ -3,7 +3,7 @@ name: BuildAndTestOnEveryPush.yml
 on:
   push:
     branches-ignore:
-      - master
+      - main
 
 jobs:
   build:

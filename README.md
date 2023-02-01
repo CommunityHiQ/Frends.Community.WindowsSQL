@@ -21,7 +21,7 @@ You can install the task via FRENDS UI Task view, by searching for packages. You
 ## Building
 Clone a copy of the repo
 
-`git clone https://github.com/FrendsPlatform/Frends.Community.WindowsSQL.git`
+`git clone https://github.com/CommunityHiQ/Frends.Community.WindowsSQL.git`
 
 Restore dependencies
 
