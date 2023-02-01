@@ -10,7 +10,7 @@
         "TaskMethod": "Frends.Community.WindowsSQL.Sql.BulkInsert"
       },
       {
-      "TaskMethod": "Frends.Community.WindowsSQL.Sql.BatchOperation"
+        "TaskMethod": "Frends.Community.WindowsSQL.Sql.BatchOperation"
       }
     ]
 }

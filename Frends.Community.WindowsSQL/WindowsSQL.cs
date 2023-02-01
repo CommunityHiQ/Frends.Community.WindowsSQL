@@ -172,7 +172,7 @@ namespace Frends.Community.WindowsSQL
     public class Sql
     {
         /// <summary>
-        /// Execute a sql query. Can only return one dataset per query. https://github.com/FrendsPlatform/Frends.Sql
+        /// Execute a sql query. Can only return one dataset per query. https://github.com/CommunityHiQ/Frends.Community.WindowsSQL
         /// </summary>
         /// <param name="input">Input parameters</param>
         /// <param name="options">Optional parameters with default values</param>
@@ -183,7 +183,7 @@ namespace Frends.Community.WindowsSQL
         }
 
         /// <summary>
-        /// Execute a stored procedure. Can only return one dataset per execution. https://github.com/FrendsPlatform/Frends.Sql
+        /// Execute a stored procedure. Can only return one dataset per execution. https://github.com/CommunityHiQ/Frends.Community.WindowsSQL
         /// </summary>
         /// <param name="input">Input parameters</param>
         /// <param name="options">Optional parameters with default values</param>
@@ -194,7 +194,7 @@ namespace Frends.Community.WindowsSQL
         }
 
         /// <summary>
-        /// Create a query for a batch operation like insert. The query is executed with Dapper ExecuteAsync. https://github.com/FrendsPlatform/Frends.Sql
+        /// Create a query for a batch operation like insert. The query is executed with Dapper ExecuteAsync. https://github.com/CommunityHiQ/Frends.Community.WindowsSQL
         /// </summary>
         /// <param name="input">Input parameters</param>
         /// <param name="options">Optional parameters with default values</param>
@@ -239,7 +239,7 @@ namespace Frends.Community.WindowsSQL
         }
 
         /// <summary>
-        /// Bulk insert json data to a SQL table. https://github.com/FrendsPlatform/Frends.Sql
+        /// Bulk insert json data to a SQL table. https://github.com/CommunityHiQ/Frends.Community.WindowsSQL
         /// </summary>
         /// <param name="input">Input parameters</param>
         /// <param name="options">Optional parameters with default values</param>

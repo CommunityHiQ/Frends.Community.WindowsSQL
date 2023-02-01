@@ -90,7 +90,7 @@ namespace Frends.Community.WindowsSQL.Tests
                             SqlTransactionIsolationLevel = SqlTransactionIsolationLevel.Default
                         }, CancellationToken.None);
 
-            Assert.That(result, Has.Exactly(1).Items);
+            Assert.AreEqual(1, result.Count);
             Assert.AreEqual(2, result.First()["Id"].Value<int>());
         }
 
@@ -119,7 +119,7 @@ namespace Frends.Community.WindowsSQL.Tests
             Assert.IsEmpty(result);
             var query = await GetAllResults();
 
-            Assert.That(query, Has.Exactly(1).Items);
+            Assert.AreEqual(1, query.Count());
             Assert.AreEqual(15, query[0]["Id"].Value<int>());
         }
 
@@ -173,7 +173,7 @@ namespace Frends.Community.WindowsSQL.Tests
 
             var query = await GetAllResults();
 
-            Assert.That(query, Has.Exactly(1).Items);
+            Assert.AreEqual(1, query.Count());
             Assert.AreEqual("First", query[0]["FirstName"].ToString());
         }
 
