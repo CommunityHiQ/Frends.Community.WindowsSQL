@@ -148,6 +148,9 @@ The second name 'Adam' can be now be accessed by #result[1].Name in the process 
 | Keep Identity                    | bool                        | Preserve source identity values. When not specified, identity values are assigned by the destination.                                                                                                                                                                                                                                                             |
 | Sql Transaction Isolation Level  | SqlTransationIsolationLevel | Transactions specify an isolation level that defines the degree to which one transaction must be isolated from resource or data modifications made by other transactions. Possible values are: Default, None, Serializable, ReadUncommitted, ReadCommitted, RepeatableRead, Snapshot. Additional documentation https://msdn.microsoft.com/en-us/library/ms378149(v=sql.110).aspx |
 | Convert Empty PropertyValues To Null | bool                    | If the input properties have empty values i.e. "", the values will be converted to null if this parameter is set to true.                                                                                                                                                                                                                                                     |
+| UseGivenUserCredentialsForRemoteConnections   | bool | Allows you to give the user credentials to use to make sql executions on remote hosts. |
+| UserName               | string               | Username for simple impersonation. Needs to be of format domain\username |
+| Password               | string               | Password for the given credentials.                        |
 
 #### Result
 Integer - Number of copied rows
@@ -166,6 +169,9 @@ Integer - Number of copied rows
 |------------------------|----------------------|------------------------------------------------------------|
 | Command Timeout Seconds       | int                  | Timeout in seconds to be used for the query. 60 seconds by default. |
 | Sql Transaction Isolation Level | SqlTransationIsolationLevel | Transactions specify an isolation level that defines the degree to which one transaction must be isolated from resource or data modifications made by other transactions. Possible values are: Default, None, Serializable, ReadUncommitted, ReadCommitted, RepeatableRead, Snapshot. Additional documentation https://msdn.microsoft.com/en-us/library/ms378149(v=sql.110).aspx | 
+| UseGivenUserCredentialsForRemoteConnections   | bool | Allows you to give the user credentials to use to make sql executions on remote hosts. |
+| UserName               | string               | Username for simple impersonation. Needs to be of format domain\username |
+| Password               | string               | Password for the given credentials.                        |
 
 #### Result
 Integer - Number of affected rows
@@ -182,3 +188,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 | Version | Changes |
 | ------- | ------- |
 | 1.0.0   | Initial implementation |
+| 1.1.0   | Added Simple impersonation to BatchOperation and BulkInsert methods |
