@@ -166,6 +166,27 @@ namespace Frends.Community.WindowsSQL
         /// Transactions specify an isolation level that defines the degree to which one transaction must be isolated from resource or data modifications made by other transactions. Default is Serializable.
         /// </summary>
         public SqlTransactionIsolationLevel SqlTransactionIsolationLevel { get; set; }
+
+        /// <summary>
+        /// If set, allows you to give the user credentials to use to make sql executions on remote hosts.
+        /// If not set, the agent service user credentials will be used.
+        /// This feature is only supported on Windows machines.
+        /// </summary>
+        public bool UseGivenUserCredentialsForRemoteConnections { get; set; }
+
+        /// <summary>
+        /// This needs to be of format domain\username
+        /// </summary>
+        [DefaultValue("\"domain\\username\"")]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// Password for the given credentials.
+        /// </summary>
+        [PasswordPropertyText]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
+        public string Password { get; set; }
     }
 
 
@@ -200,6 +221,11 @@ namespace Frends.Community.WindowsSQL
         /// <param name="options">Optional parameters with default values</param>
         /// <returns>Number of affected rows</returns>
         public static async Task<int> BatchOperation([PropertyTab]InputBatchOperation input, [PropertyTab]Options options, CancellationToken cancellationToken)
+        {
+            return await ExecuteActionAsync(() => GetBatchOperationResult(input, options, cancellationToken), options.UseGivenUserCredentialsForRemoteConnections, options.UserName, options.Password);
+        }
+
+        private static async Task<int> GetBatchOperationResult(InputBatchOperation input, Options options, CancellationToken cancellationToken)
         {
             using (var sqlConnection = new SqlConnection(input.ConnectionString))
             {
@@ -245,6 +271,11 @@ namespace Frends.Community.WindowsSQL
         /// <param name="options">Optional parameters with default values</param>
         /// <returns>Copied row count</returns>
         public static async Task<int> BulkInsert([PropertyTab]BulkInsertInput input, [PropertyTab]BulkInsertOptions options, CancellationToken cancellationToken)
+        {
+            return await ExecuteActionAsync(() => GetBulkInsertResult(input, options, cancellationToken), options.UseGivenUserCredentialsForRemoteConnections, options.UserName, options.Password);
+        }
+
+        private static async Task<int> GetBulkInsertResult(BulkInsertInput input, BulkInsertOptions options, CancellationToken cancellationToken)
         {
             var inputJson = "{\"Table\" : " + input.InputData + " }";
             var dataset = JsonConvert.DeserializeObject<DataSet>(inputJson);
