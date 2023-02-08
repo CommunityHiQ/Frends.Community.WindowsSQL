@@ -20,7 +20,7 @@ jobs:
       run: dotnet build
     
     - name: Test
-      run: dotnet test /p:CollectCoverage=true /p:Threshold=100
+      run: dotnet test --collect:"XPlat Code Coverage" /p:CollectCoverage=true /p:Threshold=100
       
     - name: Pack release version of task
       run: dotnet pack --configuration Release --include-source
