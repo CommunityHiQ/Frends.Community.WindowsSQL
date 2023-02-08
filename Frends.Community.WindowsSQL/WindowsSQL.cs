@@ -80,7 +80,7 @@ namespace Frends.Community.WindowsSQL
         public Parameter[] Parameters { get; set; }
 
         /// <summary>
-        /// Connection string
+        /// Connection string.
         /// </summary>
         [PasswordPropertyText]
         [DefaultValue("\"Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;\"")]
