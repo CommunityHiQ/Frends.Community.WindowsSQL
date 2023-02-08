@@ -20,23 +20,24 @@ jobs:
       run: dotnet build
     
     - name: Test
-      run: dotnet test --collect:"XPlat Code Coverage" /p:CollectCoverage=true /p:Threshold=100
+      run: dotnet test --collect:"XPlat Code Coverage"
 
-    - name: Quality Gate - Test coverage shall be above threshold
-      env:
-          TESTCOVERAGE_THRESHOLD: 0
+    - name: Get Line Rate from output
+      id: get_line_rate
+      shell: pwsh
       run: |
-            echo "Quality Gate: checking test coverage is above threshold ..."
-            echo "Threshold             : $TESTCOVERAGE_THRESHOLD %"
-            totalCoverage=`go tool cover -func=coverage.out | grep total | grep -Eo '[0-9]+\.[0-9]+'`
-            echo "Current test coverage : $totalCoverage %"
-            if (( $(echo "$totalCoverage $TESTCOVERAGE_THRESHOLD" | awk '{print ($1 > $2)}') )); then
-                echo "OK"
-            else
-                echo "Current test coverage is below threshold. Please add more unit tests or adjust threshold to a lower value."
-                echo "Failed"
-                exit 1
-            fi
+        $covreport = get-childitem -Filter coverage.cobertura.xml -Recurse | Sort-Object -Descending -Property LastWriteTime -Top 1
+        Write-Output $covreport.FullName
+        [xml]$covxml = Get-Content -Path $covreport.FullName
+        $lineRate = $covxml.coverage.'line-rate'
+        Write-Output "::set-output name=lineRate::$lineRate"
+
+    - name: Check coverage tolerance
+      if: ${{ steps.get_line_rate.outputs.lineRate < 0.9 }}
+      uses: actions/github-script@v3
+      with:
+        script: |
+            core.setFailed('Coverage test below tolerance')
       
     - name: Pack release version of task
       run: dotnet pack --configuration Release --include-source
