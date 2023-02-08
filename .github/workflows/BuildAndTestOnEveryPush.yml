@@ -20,7 +20,7 @@ jobs:
       run: dotnet build
     
     - name: Test
-      run: dotnet test /p:CollectCoverage=true /p:Threashold=100
+      run: dotnet test Frends.Community.WindowsSQL/Frends.Community.WindowsSQL.Tests/Frends.Community.WindowsSQL.Tests.csproj /p:CollectCoverage=true /p:Threashold=100
       
     - name: Pack release version of task
       run: dotnet pack --configuration Release --include-source

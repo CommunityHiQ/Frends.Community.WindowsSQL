@@ -90,7 +90,7 @@ namespace Frends.Community.WindowsSQL
     public class Options
     {
         /// <summary>
-        /// Command timeout in seconds
+        /// Command timeout in seconds.
         /// </summary>
         [DefaultValue(60)]
         public int CommandTimeoutSeconds { get; set; }
