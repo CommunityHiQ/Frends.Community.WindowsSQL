@@ -43,7 +43,7 @@ namespace Frends.Community.WindowsSQL
         public string InputJson { get; set; }
 
         /// <summary>
-        /// Connection string
+        /// Connection string.
         /// </summary>
         [PasswordPropertyText]
         [DefaultValue("\"Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;\"")]

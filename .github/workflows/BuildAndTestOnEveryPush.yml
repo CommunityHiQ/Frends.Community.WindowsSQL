@@ -20,7 +20,7 @@ jobs:
       run: dotnet build
     
     - name: Test
-      run: dotnet test
+      run: dotnet test /p:CollectCoverage=true /p:Threashold=80 /p:ThresholdType=line /p:ThresholdStat=total
       
     - name: Pack release version of task
       run: dotnet pack --configuration Release --include-source
