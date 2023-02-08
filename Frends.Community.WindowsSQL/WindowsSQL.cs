@@ -115,7 +115,7 @@ namespace Frends.Community.WindowsSQL
         public string UserName { get; set; }
 
         /// <summary>
-        /// Password for the given credentials.
+        /// Password for the given credentials
         /// </summary>
         [PasswordPropertyText]
         [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
