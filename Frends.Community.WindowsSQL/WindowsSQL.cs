@@ -108,7 +108,7 @@ namespace Frends.Community.WindowsSQL
         public bool UseGivenUserCredentialsForRemoteConnections { get; set; }
 
         /// <summary>
-        /// This needs to be of format domain\username
+        /// This needs to be of format domain\username.
         /// </summary>
         [DefaultValue("\"domain\\username\"")]
         [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
