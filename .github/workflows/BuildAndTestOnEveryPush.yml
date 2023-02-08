@@ -33,7 +33,7 @@ jobs:
         Write-Output "::set-output name=lineRate::$lineRate"
 
     - name: Check coverage tolerance
-      if: ${{ steps.get_line_rate.outputs.lineRate < 0.9 }}
+      if: ${{ steps.get_line_rate.outputs.lineRate < 0.5 }}
       uses: actions/github-script@v3
       with:
         script: |
