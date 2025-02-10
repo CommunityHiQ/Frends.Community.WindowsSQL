@@ -189,3 +189,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 | ------- | ------- |
 | 1.0.0   | Initial implementation |
 | 1.1.0   | Added Simple impersonation to BatchOperation and BulkInsert methods |
+| 2.0.0   | Targeted to .NET6 and 8 and updated the following packages: Dapper to 2.1.35, System.Data.SqlClient to Microsoft.Data.SqlClient 5.2.2, System.ComponentModel.Annotations to 5.0.0 and SimpleImpersonation to 4.2.0 |

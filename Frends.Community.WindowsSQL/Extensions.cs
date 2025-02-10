@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 #pragma warning disable 1591
@@ -32,7 +32,7 @@ namespace Frends.Community.WindowsSQL
             FieldInfo rowsCopiedField = null;
             rowsCopiedField = typeof(SqlBulkCopy).GetField(rowsCopiedFieldName,
                 BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.Instance);
-            return rowsCopiedField != null ? (int)rowsCopiedField.GetValue(bulkCopy) : 0;
+            return rowsCopiedField != null ? int.Parse(rowsCopiedField.GetValue(bulkCopy).ToString()) : 0;
         }
 
         public static void SetEmptyDataRowsToNull(this DataSet dataSet)
